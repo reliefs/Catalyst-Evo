@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/FndNur1Labs/Catalyst-Evo.svg?branch=master)](https://travis-ci.org/FndNur1Labs/Catalyst-Evo)
+
 <h2>Introduction</h2>
 
 We’ve built a custom platform to Future of Cryptocurrency. CryptonoteEvo is a platform technology for next generation of cryptonight.
