@@ -157,6 +157,7 @@ const std::initializer_list<CheckpointData> CHECKPOINTS = {
   {6431,	"57bd7d6c9921d934086c098f74c4ea410471e9b4729fe2e3d408a16a55f0ea2b" },
   {6567,	"4c5fc21d61afd9ebdfa331e5367be36ff61ddb95ccd7746160856655e0c86533" },
   {7045,	"9415d1b923b4c0ea8a987891f69e596460d1af42b97e1e1acb3860b627f8cfec" },
+  {7859,	"773a99066c160bd832298b017f9f468be4d7ebc3a1865be01494ff0bea3c29af" },
 };
 
 const std::map<const uint32_t, const uint8_t> Version = {
