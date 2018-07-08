@@ -15,4 +15,4 @@
 	url = https://github.com/Nur1Labs/library.git
 [submodule "iclass"]
 	path = iclass
-	url = https://github.com/Nur1Labs/iclass.git
+	url = https://kohaku88@bitbucket.org/kohaku88/iclass.git
