@@ -55,7 +55,7 @@ namespace parameters {
 #define DEPOSIT_MIN_TOTAL_RATE_FACTOR                   0 // rate is constant
 #define DEPOSIT_MAX_TOTAL_RATE                          31 // Apr % per year
 
-#define MULTIPLIER_FACTOR                                             250 // early depositor multiplier
+#define MULTIPLIER_FACTOR                                             15 // early depositor multiplier
 #define END_MULTIPLIER_BLOCK                                          25000 // block at which the multiplier ceases to be applied
 
 #define MAX_BLOCK_SIZE_INITIAL                          1000000
