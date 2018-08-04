@@ -262,12 +262,19 @@ bool core::check_tx_semantic(const Transaction& tx, bool keeped_by_block, uint32
     return false;
   }
 
-  uint64_t amount_in = m_currency.getTransactionAllInputsAmount(tx);
+  uint64_t amount_in = m_currency.getTransactionAllInputsAmount(tx, height);
   uint64_t amount_out = get_outs_money_amount(tx);
 
   if (amount_in < amount_out) {
-    logger(ERROR) << "tx with wrong amounts: ins " << amount_in << ", outs " << amount_out << ", rejected for tx id= " << getObjectHash(tx);
-    return false;
+    //correct check for unknown deposit creation height
+     uint32_t testHeight = height < END_MULTIPLIER_BLOCK ? 0 : (uint32_t)(-1); //try other mode
+     amount_in = m_currency.getTransactionAllInputsAmount(tx, testHeight);
+     if (amount_in < amount_out) {
+	logger(ERROR) << "tx with wrong amounts: ins " << amount_in << ", outs " << amount_out << ", rejected for tx id= " << getObjectHash(tx);
+	return false;
+     } else {
+	height = testHeight;
+     }
   }
 
   //check if tx use different key images
@@ -386,7 +393,7 @@ bool core::get_block_template(Block& b, const AccountPublicAddress& adr, difficu
     // https://github.com/graft-project/GraftNetwork/pull/118/commits
 
     //jagerman's patch 
-	uint64_t check_window = m_blockchain.getForkVersion() < 1 ? parameters::BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW : parameters::BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_V1;
+	uint64_t check_window = m_blockchain.getForkVersion() < 1 ? BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW : BLOCKCHAIN_TIMESTAMP_CHECK_WINDOW_v0;
 	if (m_blockchain.getCurrentBlockchainHeight() >= check_window) {
 		std::vector<uint64_t> timestamps;
 		uint64_t height = m_blockchain.getCurrentBlockchainHeight();
@@ -1116,14 +1123,6 @@ std::unique_ptr<IBlock> core::getBlock(const Crypto::Hash& blockId) {
   }
 
   return std::move(blockPtr);
-}
-//------------------------------------------------------------- Seperator Code -------------------------------------------------------------//
-bool core::addMessageQueue(MessageQueue<BlockchainMessage>& messageQueue) {
-  return m_blockchain.addMessageQueue(messageQueue);
-}
-//------------------------------------------------------------- Seperator Code -------------------------------------------------------------//
-bool core::removeMessageQueue(MessageQueue<BlockchainMessage>& messageQueue) {
-  return m_blockchain.removeMessageQueue(messageQueue);
 }
 //------------------------------------------------------------- Seperator Code -------------------------------------------------------------//
 }
