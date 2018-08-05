@@ -49,14 +49,14 @@ namespace parameters {
 #define DIFFICULTY_WINDOW_v1                            60 + 1  // blocks
 #define DIFFICULTY_CUT                                  30  // timestamps to cut after sorting
 
-#define DEPOSIT_MIN_AMOUNT                              1 * COIN
+#define DEPOSIT_MIN_AMOUNT                              1000000 * COIN
 #define DEPOSIT_MIN_TERM                                22000 // ~1 month [this block of 1 mo]
 #define DEPOSIT_MAX_TERM                                1 * 12 * 22000 // ~1 year
 #define DEPOSIT_MIN_TOTAL_RATE_FACTOR                   0 // rate is constant
 #define DEPOSIT_MAX_TOTAL_RATE                          31 // Apr % per year
 
-#define MULTIPLIER_FACTOR                                             250 // early depositor multiplier
-#define END_MULTIPLIER_BLOCK                                          2500000 // block at which the multiplier ceases to be applied
+#define MULTIPLIER_FACTOR                                             15 // early depositor multiplier
+#define END_MULTIPLIER_BLOCK                                          25000 // block at which the multiplier ceases to be applied
 
 #define MAX_BLOCK_SIZE_INITIAL                          1000000
 #define MAX_BLOCK_SIZE_GROWTH_SPEED_NUMERATOR           100 * 1024
