@@ -93,8 +93,8 @@ namespace parameters {
 
 } // parameters
 
-#define CRYPTONOTE_NAME 	                               "catalyst"
-#define GENESIS_COINBASE_TX_HEX                       "010a01ff0001c5f5b7d9a43a029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd0880712101c8b3eb861829c338eded4298e4ed66a1e41cbcc884a779c177e46f480014e08d"
+#define CRYPTONOTE_NAME "brominer"
+#define GENESIS_COINBASE_TX_HEX                       "010a01ff0001ade5f888ea05029b2e4c0281c0b02e7c53291a94d1d0cbff8883f8024f5142ee494ffbbd08807121014e6316363771b2bb59bd95770a693f0a2d2283cc4a0f4372e98c2de56ecb6329"
 
 #define GENESIS_NONCE                                   70
 #define GENESIS_TIMESTAMP                               1529201466
@@ -109,8 +109,8 @@ namespace parameters {
 #define BLOCKS_SYNCHRONIZING_DEFAULT_COUNT              128 // by default, blocks count in blocks downloading
 #define COMMAND_RPC_GET_BLOCKS_FAST_MAX_COUNT           1000
 
-#define P2P_DEFAULT_PORT                             			5290
-#define RPC_DEFAULT_PORT		                                5295
+#define P2P_DEFAULT_PORT                             			2793
+#define RPC_DEFAULT_PORT		                                2794
 
 #define P2P_LOCAL_WHITE_PEERLIST_LIMIT                  1000
 #define P2P_LOCAL_GRAY_PEERLIST_LIMIT                   5000
@@ -128,8 +128,8 @@ namespace parameters {
 #define P2P_STAT_TRUSTED_PUB_KEY                        "FF9507CA55455F37A3B783EE2C5123B8B6A34A0C5CAAE050922C6254161480C1"
 
 const std::initializer_list<const char*> SEED_NODES = {
-  "seed1.catalyst.cash:5290",
-  "seed2.catalyst.cash:5290",
+  "35.204.104.69:2793",
+  "35.235.81.110:2793",
 };
 
 struct CheckpointData {
